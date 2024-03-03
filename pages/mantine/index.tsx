@@ -1,20 +1,22 @@
-import { Button, Group, Stepper, Title } from "@mantine/core";
+import { Button, Group, Stepper, Title, Affix } from "@mantine/core";
 import { Breadcrumbs, Anchor } from "@mantine/core";
 import "@mantine/core/styles.css";
 import { useState } from "react";
 import DataDisplay from "@/components/mantine/data";
+import Inputs from "@/components/mantine/inputs";
 
 export default function MantinePage() {
   const [active, setActive] = useState(0);
   return (
-    <div className="flex flex-col items-center min-h-[85vh] justify-around">
+    <div className="flex flex-col items-center min-h-[80vh] justify-around">
       <Breadcrumbs>
         <Anchor href="/">Home</Anchor>
         <Anchor href="/mui">Mantine</Anchor>
       </Breadcrumbs>
       <Title order={1}>Mantine</Title>
-      {active === 0 && <DataDisplay />}
-      <div className="bottom-5 absolute w-screen p-10">
+      {active === 0 && <Inputs />}
+      {active === 1 && <DataDisplay />}
+      <Affix position={{ bottom: 20, right: 20 }} className="w-[95vw]">
         <Stepper active={active} onStepClick={setActive}>
           <Stepper.Step
             label="Inputs"
@@ -38,7 +40,7 @@ export default function MantinePage() {
             Next step
           </Button>
         </Group>
-      </div>
+      </Affix>
     </div>
   );
 }
