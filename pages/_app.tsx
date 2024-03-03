@@ -9,7 +9,7 @@ export default function App(props: AppProps) {
   const url = usePathname();
   const isMuiPage = url === "/mui";
   const isMantinePage = url === "/mantine";
-  const isShadcnPage = url === "/shadcn";
+  const isHome = url === "/";
 
   const { Component, pageProps } = props;
   if (isMuiPage) {
@@ -19,7 +19,7 @@ export default function App(props: AppProps) {
         <Component {...pageProps} />
       </AppCacheProvider>
     );
-  } else if (isMantinePage) {
+  } else if (isMantinePage || isHome) {
     return (
       <MantineProvider>
         <Component {...pageProps} />

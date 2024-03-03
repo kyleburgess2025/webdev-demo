@@ -4,6 +4,7 @@ import "@mantine/core/styles.css";
 import { useState } from "react";
 import DataDisplay from "@/components/mantine/data";
 import Inputs from "@/components/mantine/inputs";
+import Link from "next/link";
 
 export default function MantinePage() {
   const [active, setActive] = useState(0);
@@ -16,6 +17,11 @@ export default function MantinePage() {
       <Title order={1}>Mantine</Title>
       {active === 0 && <Inputs />}
       {active === 1 && <DataDisplay />}
+      {active === 2 && (
+        <Button variant="contained" color="primary">
+          <Link href="/">Go Back Home</Link>
+        </Button>
+      )}
       <Affix position={{ bottom: 20, right: 20 }} className="w-[95vw]">
         <Stepper active={active} onStepClick={setActive}>
           <Stepper.Step

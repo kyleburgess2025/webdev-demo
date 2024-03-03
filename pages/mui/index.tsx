@@ -9,7 +9,7 @@ import Inputs from "@/components/mui/inputs";
 import DataDisplay from "@/components/mui/data";
 import { Breadcrumbs, Link } from "@mui/material";
 
-const steps = ["Inputs", "Data Display"];
+const steps = ["Inputs", "Data Display", "Done"];
 
 export default function MuiPage() {
   const [activeStep, setActiveStep] = useState(0);
@@ -35,6 +35,11 @@ export default function MuiPage() {
       <Typography variant="h2">Material UI</Typography>
       {activeStep === 0 && <Inputs />}
       {activeStep === 1 && <DataDisplay />}
+      {activeStep === 2 && (
+        <Button>
+          <Link href="/">Go Back Home</Link>
+        </Button>
+      )}
       <Box sx={{ width: "100%" }} className="bottom-5 absolute">
         <Stepper activeStep={activeStep} alternativeLabel>
           {steps.map((label) => (
@@ -56,7 +61,7 @@ export default function MuiPage() {
             variant="contained"
             color="primary"
             onClick={handleNext}
-            disabled={activeStep === 1}
+            disabled={activeStep === 2}
           >
             Next
           </Button>

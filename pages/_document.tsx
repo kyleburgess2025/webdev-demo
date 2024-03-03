@@ -19,12 +19,12 @@ export default function Document(props: DocumentProps & DocumentHeadTagsProps) {
   const url = usePathname();
   const isMuiPage = url === "/mui";
   const isMantinePage = url === "/mantine";
-  const isShadcnPage = url === "/shadcn";
+  const isHome = url === "/";
 
   return (
     <Html lang="en">
       {isMuiPage && <DocumentHeadTags {...props} />}
-      <Head>{isMantinePage && <ColorSchemeScript />}</Head>
+      <Head>{(isMantinePage || isHome) && <ColorSchemeScript />}</Head>
       <body>
         <Main />
         <NextScript />
