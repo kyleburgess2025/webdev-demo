@@ -12,6 +12,7 @@ import {
 } from "@mui/material-nextjs/v13-pagesRouter";
 import type { DocumentHeadTagsProps } from "@mui/material-nextjs/v13-pagesRouter";
 import { usePathname } from "next/navigation";
+import { ColorSchemeScript } from "@mantine/core";
 
 export default function Document(props: DocumentProps & DocumentHeadTagsProps) {
   // Get current URL and change Document based on page
@@ -23,7 +24,7 @@ export default function Document(props: DocumentProps & DocumentHeadTagsProps) {
   return (
     <Html lang="en">
       {isMuiPage && <DocumentHeadTags {...props} />}
-      <Head />
+      <Head>{isMantinePage && <ColorSchemeScript />}</Head>
       <body>
         <Main />
         <NextScript />

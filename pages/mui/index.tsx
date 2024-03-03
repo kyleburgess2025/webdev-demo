@@ -6,8 +6,10 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import { useState } from "react";
 import Inputs from "@/components/mui/inputs";
+import DataDisplay from "@/components/mui/data";
+import { Breadcrumbs, Link } from "@mui/material";
 
-const steps = ["Inputs", "Data Display", "Misc"];
+const steps = ["Inputs", "Data Display"];
 
 export default function MuiPage() {
   const [activeStep, setActiveStep] = useState(0);
@@ -22,8 +24,17 @@ export default function MuiPage() {
 
   return (
     <div className="flex flex-col items-center min-h-[85vh] justify-around">
+      <Breadcrumbs aria-label="breadcrumb">
+        <Link underline="hover" color="inherit" href="/">
+          Home
+        </Link>
+        <Link underline="hover" color="text.primary" href="/mui">
+          MUI
+        </Link>
+      </Breadcrumbs>
       <Typography variant="h2">Material UI</Typography>
       {activeStep === 0 && <Inputs />}
+      {activeStep === 1 && <DataDisplay />}
       <Box sx={{ width: "100%" }} className="bottom-5 absolute">
         <Stepper activeStep={activeStep} alternativeLabel>
           {steps.map((label) => (
@@ -45,7 +56,7 @@ export default function MuiPage() {
             variant="contained"
             color="primary"
             onClick={handleNext}
-            disabled={activeStep === 2}
+            disabled={activeStep === 1}
           >
             Next
           </Button>

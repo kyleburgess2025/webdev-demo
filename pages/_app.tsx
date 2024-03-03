@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { AppCacheProvider } from "@mui/material-nextjs/v14-pagesRouter";
 import { usePathname } from "next/navigation";
 import CssBaseline from "@mui/material/CssBaseline";
+import { MantineProvider } from "@mantine/core";
 
 export default function App(props: AppProps) {
   const url = usePathname();
@@ -14,10 +15,15 @@ export default function App(props: AppProps) {
   if (isMuiPage) {
     return (
       <AppCacheProvider {...props}>
-        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
         <CssBaseline />
         <Component {...pageProps} />
       </AppCacheProvider>
+    );
+  } else if (isMantinePage) {
+    return (
+      <MantineProvider>
+        <Component {...pageProps} />
+      </MantineProvider>
     );
   } else {
     return <Component {...pageProps} />;

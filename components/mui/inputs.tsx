@@ -154,13 +154,18 @@ export default function Inputs() {
           renderInput={(params) => (
             <TextField {...params} label="Team Member" />
           )}
+          className="p-2"
         />
-        <ButtonGroup aria-label="Basic button group" orientation="vertical">
+        <ButtonGroup
+          aria-label="Basic button group"
+          orientation="vertical"
+          className="p-2"
+        >
           <Button>One</Button>
           <Button>Two</Button>
           <Button>Three</Button>
         </ButtonGroup>
-        <FormGroup>
+        <FormGroup className="p-2">
           <FormControlLabel
             control={<Checkbox defaultChecked />}
             label="Label"
@@ -168,7 +173,7 @@ export default function Inputs() {
           <FormControlLabel required control={<Checkbox />} label="Required" />
           <FormControlLabel disabled control={<Checkbox />} label="Disabled" />
         </FormGroup>
-        <FormControl>
+        <FormControl className="p-2">
           <FormLabel id="demo-radio-buttons-group-label">Gender</FormLabel>
           <RadioGroup
             row
@@ -185,7 +190,9 @@ export default function Inputs() {
             <FormControlLabel value="other" control={<Radio />} label="Other" />
           </RadioGroup>
         </FormControl>
-        <Typography component="legend">Rate This Presentation</Typography>
+        <Typography component="legend" className="p-top-2">
+          Rate This Presentation
+        </Typography>
         <Rating
           name="simple-controlled"
           value={value}
