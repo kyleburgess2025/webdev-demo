@@ -2,6 +2,7 @@ import { Button, Group, Stepper, Title } from "@mantine/core";
 import { Breadcrumbs, Anchor } from "@mantine/core";
 import "@mantine/core/styles.css";
 import { useState } from "react";
+import DataDisplay from "@/components/mantine/data";
 
 export default function MantinePage() {
   const [active, setActive] = useState(0);
@@ -12,6 +13,7 @@ export default function MantinePage() {
         <Anchor href="/mui">Mantine</Anchor>
       </Breadcrumbs>
       <Title order={1}>Mantine</Title>
+      {active === 0 && <DataDisplay />}
       <div className="bottom-5 absolute w-screen p-10">
         <Stepper active={active} onStepClick={setActive}>
           <Stepper.Step
