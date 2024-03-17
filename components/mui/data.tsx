@@ -97,7 +97,7 @@ export default function DataDisplay() {
   );
 
   return (
-    <div>
+    <div className="w-[90vw]">
       <Badge badgeContent={4} color="primary">
         <Tooltip title="Kyle Burgess">
           <Avatar sx={{ bgcolor: deepOrange[500] }}>KB</Avatar>
