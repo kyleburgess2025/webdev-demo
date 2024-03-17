@@ -3,7 +3,13 @@ import type { AppProps } from "next/app";
 import { AppCacheProvider } from "@mui/material-nextjs/v14-pagesRouter";
 import { usePathname } from "next/navigation";
 import CssBaseline from "@mui/material/CssBaseline";
-import { MantineProvider } from "@mantine/core";
+import { MantineProvider, createTheme } from "@mantine/core";
+
+const theme = createTheme({
+  fontFamily: "Monospace, sans-serif",
+  primaryColor: "cyan",
+  defaultRadius: "xl",
+});
 
 export default function App(props: AppProps) {
   const url = usePathname();
@@ -21,7 +27,7 @@ export default function App(props: AppProps) {
     );
   } else if (isMantinePage || isHome) {
     return (
-      <MantineProvider>
+      <MantineProvider theme={theme} defaultColorScheme="dark">
         <Component {...pageProps} />
       </MantineProvider>
     );

@@ -7,6 +7,7 @@ import {
   Badge,
   Box,
   Button,
+  CircularProgress,
   Collapse,
   Divider,
   Drawer,
@@ -53,6 +54,7 @@ export default function DataDisplay() {
   const [showError, setShowError] = useState(false);
   const [openNote, setOpenNote] = useState(false);
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
   const toggleDrawer =
     (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
       if (
@@ -96,8 +98,16 @@ export default function DataDisplay() {
     </Box>
   );
 
+  const openAccordion = () => {
+    setLoading(true);
+    console.log(loading);
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  };
+
   return (
-    <div>
+    <div className="w-10/12">
       <Badge badgeContent={4} color="primary">
         <Tooltip title="Kyle Burgess">
           <Avatar sx={{ bgcolor: deepOrange[500] }}>KB</Avatar>
@@ -145,7 +155,14 @@ export default function DataDisplay() {
         onClose={() => setOpenNote(false)}
         message="Note archived"
       />
-      <Accordion>
+      <Accordion
+        onChange={(event, expanded) => {
+          console.log(expanded);
+          if (expanded) {
+            openAccordion();
+          }
+        }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1-content"
@@ -154,8 +171,15 @@ export default function DataDisplay() {
           Accordion 1
         </AccordionSummary>
         <AccordionDetails>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
+          {loading ? (
+            <CircularProgress />
+          ) : (
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
+              eget.
+            </p>
+          )}
         </AccordionDetails>
       </Accordion>
       <Button onClick={toggleDrawer(true)}>Open drawer</Button>

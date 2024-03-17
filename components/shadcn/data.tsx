@@ -49,11 +49,21 @@ import {
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
 import Resizable from "./resizable";
+import { Blockquote, BlockquoteAuthor } from "../ui/blockquote";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export default function Data() {
   return (
     <div>
       <ScrollArea className="h-[65vh] w-[90vw] rounded-md border p-4">
+        <Blockquote>
+          To Be, or Not To Be
+          <BlockquoteAuthor>Forrest Gump</BlockquoteAuthor>
+        </Blockquote>
+        <Avatar>
+          <AvatarImage src="https://github.com/shadcn.png" />
+          <AvatarFallback>CN</AvatarFallback>
+        </Avatar>
         <div className="flex flex-col gap-10">
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
