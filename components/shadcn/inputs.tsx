@@ -5,14 +5,12 @@ import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
   Command,
-  CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
   CommandItem,
   CommandList,
   CommandSeparator,
-  CommandShortcut,
 } from "@/components/ui/command";
 import {
   ContextMenu,
