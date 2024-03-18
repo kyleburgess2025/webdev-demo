@@ -50,6 +50,7 @@ export default function Data() {
     <div>
       <ScrollArea className="h-[65vh] w-[90vw] rounded-md border p-4">
         <div className="flex flex-col gap-10">
+          Put card here!
           <Accordion type="single" collapsible>
             <AccordionItem value="item-1">
               <AccordionTrigger>Is it accessible?</AccordionTrigger>
@@ -86,7 +87,7 @@ export default function Data() {
               <p>Card Footer</p>
             </CardFooter>
           </Card>
-          <Carousel>
+          <Carousel className="w-[40vw]">
             <CarouselContent>
               <CarouselItem>
                 {/* random image */}
